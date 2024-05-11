@@ -1,0 +1,480 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {%block head %}
+    <title>LoviDovi Cake</title>
+    {% endblock %}
+    <!--swiper link-->
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    <!--font awesome-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+     <!--css add-->
+     
+     <link rel="stylesheet"  href="{% static 'css/style.css' %}">  
+     <link rel="icon" href="{% static 'img/logo1.png' %}">  
+
+     
+</head>
+<body>
+    {% block content %}
+    <!--header section-->
+    <header class="header">
+        <div class="logoContent">
+            <a href="#contact" class="logo"><img src="{% static 'img/logo1.png' %}"></a>
+            <h1 class="logoname">LoviDovi Cakes</h1>
+        </div>
+        <nav class="navbar">
+            <a href="#home">Home</a>
+            <a href="#flavors">Flavors</a>
+            <a href="#occasion">Occasion</a>
+            <a href="#blogs">New Arrivals</a>
+            <a href="#contact">Contact Us</a>
+            
+            
+           
+        </nav>
+        <div class="auth">{% if not user.is_authenticated %}
+            <h1><a href="{% url 'register' %}">Register</a> -- 
+            <a href="{% url 'login' %}">Login </a></h1>
+        {% else %}    
+        <h1>Hello,{{ user.username }}!
+        <a href="{% url 'logout' %}">logout </a></h1>
+        
+        {% endif %}
+        </div>
+
+        <div class="icon">
+            <i class="fas fa-search" id="search"></i>
+            <i class="fas fa-bars" id="menu-bar"></i>
+           <a href="app/"><i class="fas fa-shopping-cart" id="order"></i></a>
+        </div>
+
+        <div class="search">
+            <input type="search" id="search" placeholder="search...">
+        </div>
+    </header>
+    
+
+
+    <!--home-->
+    <section class="home" id="home">
+        <div class="homeContent">
+            <h2>Delicious Cake for Everyone </h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum excepturi doloribus, fuga quod deserunt
+                recusandae?</p>
+            <div class="home-btn">
+                <a href="#contact"><button>see more</button></a>
+            </div>
+        </div>
+    </section>
+
+
+    <!--flavours-->
+    <section class="flavors" id="flavors">
+        <div class="heading">
+            <h2>Our Delicious Flavors</h2>
+        </div>
+        <div class="swiper flavors-row">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide box">
+                    <div class="img">
+                        <img src="{% static 'img/cake2.jpeg' %}"  alt="">
+                    </div>
+                    <div class="product-content">
+                        <h3>Chocolate</h3>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa adipisci reiciendis assumenda.
+                        </p>
+                        <div class="orderNow">
+                            <a href="app/"><button>Order Now </button></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide box">
+                    <div class="img">
+                        <img src="{% static 'img/vennila.jpeg' %}"   alt="">
+                    </div>
+                    <div class="product-content">
+                        <h3>Vanilla</h3>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa adipisci reiciendis assumenda.
+                        </p>
+                        <div class="orderNow">
+                            <a href="app/"><button>Order Now </button></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide box">
+                    <div class="img">
+                        <img src="{% static 'img/cake4.jpeg' %}"   alt="" >
+                    </div>
+                    <div class="product-content">
+                        <h3>Red velvet</h3>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa adipisci reiciendis assumenda.
+                        </p>
+                        <div class="orderNow">
+                            <a href="app/"><button>Order Now </button></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide box">
+                    <div class="img">
+                        <img src="{% static 'img/lemon.jpeg' %}"   alt="">
+                    </div>
+                    <div class="product-content">
+                        <h3>Lemon</h3>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa adipisci reiciendis assumenda.
+                        </p>
+                        <div class="orderNow">
+                            <a href="app/"><button>Order Now </button></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide box">
+                    <div class="img">
+                        <img src="{% static 'img/carrot.jpeg' %}"   alt="">
+                    </div>
+                    <div class="product-content">
+                        <h3>Carrrot</h3>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa adipisci reiciendis assumenda.
+                        </p>
+                        <div class="orderNow">
+                            <a href="app/"><button>Order Now </button></a>
+                        </div>
+                    </div>
+                </div>
+            
+            </div>
+            <div class="swiper-pagination"></div>
+        </div>
+        <div class="swiper flavors-row">
+            <div class="swiper-wrapper">    
+                <div class="swiper-slide box">
+                    <div class="img">
+                        <img src="{% static 'img/coconut.jpeg' %}"   alt="">
+                    </div>
+                    <div class="product-content">
+                        <h3>Coconut</h3>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa adipisci reiciendis assumenda.
+                        </p>
+                        <div class="orderNow">
+                            <a href="app/"><button>Order Now </button></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide box">
+                    <div class="img">
+                        <img src="{% static 'img/strawberry.jpeg' %}"  alt="">
+                    </div>
+                    <div class="product-content">
+                        <h3>Strawberry</h3>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa adipisci reiciendis assumenda.
+                        </p>
+                        <div class="orderNow">
+                            <a href="app/"><button>Order Now </button></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide box">
+                    <div class="img">
+                        <img src="{% static 'img/coffee.jpeg' %}"   alt="">
+                    </div>
+                    <div class="product-content">
+                        <h3>Coffee</h3>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa adipisci reiciendis assumenda.
+                        </p>
+                        <div class="orderNow">
+                            <a href="app/"><button>Order Now </button></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide box">
+                    <div class="img">
+                        <img src="{% static 'img/funfetti.jpeg' %}"   alt="">
+                    </div>
+                    <div class="product-content">
+                        <h3>Funfetti</h3>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa adipisci reiciendis assumenda.
+                        </p>
+                        <div class="orderNow">
+                            <a href="app/"><button>Order Now </button></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide box">
+                    <div class="img">
+                        <img src="{% static 'img/marble.jpeg' %}"   alt="">
+                    </div>
+                    <div class="product-content">
+                        <h3>Marble</h3>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa adipisci reiciendis assumenda.
+                        </p>
+                        <div class="orderNow">
+                            <a href="app/"><button>Order Now </button></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="swiper-pagination"></div>
+        </div>
+    </section>
+
+    <!--occassion-->
+    <section class="occasion" id="occasion">
+        <div class="heading">
+            <h2>Our Special Preparation</h2>
+        </div>
+        <div class="swiper occasion-row">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide box">
+                    <div class="img">
+                        <img src="{% static 'img/birthday.jpeg' %}"  alt="">
+                    </div>
+                    <div class="product-content">
+                        <h3>Birthdays</h3>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa adipisci reiciendis assumenda.
+                        </p>
+                        <div class="orderNow">
+                            <a href="app/"><button>Order Now </button></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide box">
+                    <div class="img">
+                        <img src="{% static 'img/wedding.jpeg' %}"  alt="">
+                    </div>
+                    <div class="product-content">
+                        <h3>Weddings</h3>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa adipisci reiciendis assumenda.
+                        </p>
+                        <div class="orderNow">
+                            <a href="app/"><button>Order Now </button></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide box">
+                    <div class="img">
+                        <img src="{% static 'img/gender.jpeg' %}"   alt="">
+                    </div>
+                    <div class="product-content">
+                        <h3>Gender reveal</h3>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa adipisci reiciendis assumenda.
+                        </p>
+                        <div class="orderNow">
+                            <a href="app/"><button>Order Now </button></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide box">
+                    <div class="img">
+                        <img src="{% static 'img/event.jpeg' %}"   alt="">
+                    </div>
+                    <div class="product-content">
+                        <h3>Special Events</h3>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa adipisci reiciendis assumenda.
+                        </p>
+                        <div class="orderNow">
+                            <a href="app/"><button>Order Now </button></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide box">
+                    <div class="img">
+                        <img src="{% static 'img/customised.jpeg' %}"   alt="">
+                    </div>
+                    <div class="product-content">
+                        <h3>Surprise Party</h3>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa adipisci reiciendis assumenda.
+                        </p>
+                        <div class="orderNow">
+                            <a href="app/"><button>Order Now </button></a>
+                        </div>
+                    </div>
+                </div>
+            
+            </div>
+            <div class="swiper-pagination"></div>
+        </div>
+    </section>
+
+    <!--new arrivals-->
+    <section class="blogs" id="blogs">
+        <div class="heading">
+            <h2>Our New Arrivals</h2>
+        </div>
+
+        <div class=" swiper blogs-row">
+            <div class="swiper-wrapper">
+                <div class=" swiper-slide box">
+                    <div class="img">
+                        <img src="{% static 'img/pinnata.jpeg' %}" alt="">
+                    </div>
+                    <div class="content">
+                        <h3>Pinnata cake </h3>
+                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eligendi dolorum voluptatum
+                            corporis accusamus aperiam fugiat tempora blanditiis labore dolor aliquid maxime nobis
+                            laborum sed soluta voluptatibus aspernatur natus, dicta quisquam.</p>
+                        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Totam ab ullam reiciendis sint
+                            eaque at.</p>
+                        <a href="#blogs" class="btn">learn more</a>
+                    </div>
+                </div>
+                <div class=" swiper-slide box">
+                    <div class="img">
+                        <img src="{% static 'img/bomb.jpeg' %}" alt="">
+                    </div>
+                    <div class="content">
+                        <h3>Bomb cake </h3>
+                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eligendi dolorum voluptatum
+                            corporis accusamus aperiam fugiat tempora blanditiis labore dolor aliquid maxime nobis
+                            laborum sed soluta voluptatibus aspernatur natus, dicta quisquam.</p>
+                        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Totam ab ullam reiciendis sint
+                            eaque at.</p>
+                        <a href="#blogs" class="btn">learn more</a>
+                    </div>
+                </div>
+                <div class=" swiper-slide box">
+                    <div class="img">
+                        <img src="{% static 'img/cupcake.jpeg' %}" alt="">
+                    </div>
+                    <div class="content">
+                        <h3>Cupcakes </h3>
+                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eligendi dolorum voluptatum
+                            corporis accusamus aperiam fugiat tempora blanditiis labore dolor aliquid maxime nobis
+                            laborum sed soluta voluptatibus aspernatur natus, dicta quisquam.</p>
+                        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Totam ab ullam reiciendis sint
+                            eaque at.</p>
+                        <a href="#blogs" class="btn">learn more</a>
+                    </div>
+                </div>
+                <div class=" swiper-slide box">
+                    <div class="img">
+                        <img src="{% static 'img/rasamalai.jpeg' %}" alt="">
+                    </div>
+                    <div class="content">
+                        <h3>Rasamalai cake </h3>
+                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eligendi dolorum voluptatum
+                            corporis accusamus aperiam fugiat tempora blanditiis labore dolor aliquid maxime nobis
+                            laborum sed soluta voluptatibus aspernatur natus, dicta quisquam.</p>
+                        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Totam ab ullam reiciendis sint
+                            eaque at.</p>
+                        <a href="#blogs" class="btn">learn more</a>
+                    </div>
+                </div>
+                <div class=" swiper-slide box">
+                    <div class="img">
+                        <img src="{% static 'img/jamun.jpeg' %}" alt="">
+                    </div>
+                    <div class="content">
+                        <h3>Jamun cake </h3>
+                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eligendi dolorum voluptatum
+                            corporis accusamus aperiam fugiat tempora blanditiis labore dolor aliquid maxime nobis
+                            laborum sed soluta voluptatibus aspernatur natus, dicta quisquam.</p>
+                        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Totam ab ullam reiciendis sint
+                            eaque at.</p>
+                        <a href="#blogs" class="btn">learn more</a>
+                    </div>
+                </div>
+                <div class=" swiper-slide box">
+                    <div class="img">
+                        <img src="{% static 'img/jar.jpeg' %}" alt="">
+                    </div>
+                    <div class="content">
+                        <h3>Jar cake </h3>
+                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eligendi dolorum voluptatum
+                            corporis accusamus aperiam fugiat tempora blanditiis labore dolor aliquid maxime nobis
+                            laborum sed soluta voluptatibus aspernatur natus, dicta quisquam.</p>
+                        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Totam ab ullam reiciendis sint
+                            eaque at.</p>
+                        <a href="#blogs" class="btn">learn more</a>
+                    </div>
+                </div>
+                <div class=" swiper-slide box">
+                    <div class="img">
+                        <img src="{% static 'img/customised.jpeg' %}" alt="">
+                    </div>
+                    <div class="content">
+                        <h3>Customised cake </h3>
+                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eligendi dolorum voluptatum
+                            corporis accusamus aperiam fugiat tempora blanditiis labore dolor aliquid maxime nobis
+                            laborum sed soluta voluptatibus aspernatur natus, dicta quisquam.</p>
+                        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Totam ab ullam reiciendis sint
+                            eaque at.</p>
+                        <a href="#blogs" class="btn">learn more</a>
+                    </div>
+                </div>
+            </div>
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-pagination"></div>
+
+
+        </div>
+    </section>
+
+    <!--newsletter-->
+    <section class="newsletter">
+        <form action="">
+            <h3>subscribe for latest update</h3>
+            <input type="email" name="" placeholder="enter your email" id="" class="box">
+            <input type="button" value="subscribe" class="box2">
+        </form>
+    </section>
+
+    
+
+    <!--footer-->
+    <footer class="footer" id="contact">
+        <div class="box-container">
+            <div class="mainBox">
+                <div class="content">
+                    <a href="#home"><img src="{% static 'img/logo1.png' %}" alt="" height="50" width="50"></a>
+                    <h1 class="logoName"> Lovi Dovi Cake </h1>
+                </div>
+                
+                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dicta accusamus maxime quod.</p>
+
+            </div>
+            <div class="box">
+                <h3>Quick link</h3>
+                <a href="#home"> <i class="fas fa-arrow-right"></i>Home</a>
+                <a href="#flavors"> <i class="fas fa-arrow-right"></i>Flavors</a>
+                <a href="#occasion"> <i class="fas fa-arrow-right"></i>occassion</a>
+                <a href="#blogs"> <i class="fas fa-arrow-right"></i>blogs</a>
+                <a href="app/"> <i class="fas fa-arrow-right"></i>order item</a>
+                <a href="#footer"> <i class="fas fa-arrow-right"></i>contact</a>
+
+            </div>
+            
+            <div class="box">
+                <h3>Contact Info</h3>
+                <a href="#"> <i class="fas fa-phone"></i>+91 12222 34444</a>
+                <a href="#"> <i class="fas fa-envelope"></i>lovidovi24@gmail.com</a>
+
+            </div>
+
+        </div>
+        <div class="share">
+            <a href="https://www.facebook.com/61554707378142/posts/122103005852156912/?substory_index=720992453432429&app=fbl" class="fab fa-facebook-f"></a>
+            
+            <a href="https://www.instagram.com/lovi_dovicakes_24/" class="fab fa-instagram"></a>
+            <a href="#" class="fab fa-linkedin"></a>
+            <a href="#" class="fab fa-pinterest"></a>
+        </div>
+        
+    </footer>
+
+
+
+
+
+
+    
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script  src="{% static 'js/script.js' %} "></script>
+    {% endblock %}
+</body>
+</html>
